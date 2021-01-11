@@ -1,0 +1,1 @@
+// module.exports.mongoURI = YOUR MONGODB URI
