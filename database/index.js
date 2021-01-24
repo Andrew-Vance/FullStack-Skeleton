@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const config = require('./config.js');
 
-mongoose.connect(process.env.MONGO_URI || config.mongoURI || 'mongodb://localhost/test', {
+mongoose.connect(config.mongoURI || 'mongodb://localhost/test', {
   useNewUrlParser: true, useUnifiedTopology: true
 });
 
@@ -13,12 +13,12 @@ db.once('open', () => {
   console.log('connected to database');
 });
 
-const modelNameShema = new mongoose.Schema({
+const modelNameSchema = new mongoose.Schema({
   valueName: String,
   valueName2: Number
 });
 
-const modelName = mongoose.model('modelName', modelNameShema);
+const modelName = mongoose.model('modelName', modelNameSchema);
 
 
 const create = (data) => {
