@@ -1,14 +1,13 @@
 const path = require('path');
 
-const SRC_FILE_PATH = path.join(__dirname, 'client/index.jsx');
+const SRC_FILE = path.join(__dirname, 'client/index.jsx');
 const OUT_PATH = path.join(__dirname, 'client/dist');
 
 module.exports = {
-  mode: 'development',
-  entry: SRC_FILE_PATH,
+  entry: SRC_FILE,
   output: {
-    path: OUT_PATH,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: OUT_PATH
   },
   module: {
     rules: [
@@ -16,15 +15,12 @@ module.exports = {
         test: /\.?(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
       }
     ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
   }
-}
+};
