@@ -21,8 +21,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server",
-    "build": "webpack --watch"
+    "start": "node server",
+    "dev-start": "nodemon server",
+    "dev-watch": "webpack --config webpack.dev.js --watch",
+    "dev-build": "webpack --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
